@@ -8,6 +8,17 @@ def map(array)
   p new_array
 end
 
-def reduce(array)
-
-end  
+def reduce(array, starting_point = nil)
+  if starting_point
+    sum = starting_point
+    i = 0
+  else
+    sum = array[0]
+    i = 1
+  end 
+  while i < line.length
+    sum = yield(sum, array[i])
+    i++
+  end
+  sum
+end
